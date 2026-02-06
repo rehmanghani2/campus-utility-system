@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { requestAPI } from "../services/api";
 
 import { FaPlus, FaClipboardList, FaClock, FaCheckCircle,
-          FaSpinner, FaTimesCircle } from "react-icons/fa";
+          FaSpinner } from "react-icons/fa";
 
 import './Dashboard.css'
 import { useAuth } from "../context/AuthContext";
