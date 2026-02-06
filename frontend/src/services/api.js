@@ -1,6 +1,18 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5000/api';
+// ============ API URL CONFIGURATION ============
+const getApiUrl = () => {
+    // Production URL (your deployed backend)
+    if (process.env.NODE_ENV === 'production') {
+        return  'https://campus-utility-api.vercel.app/api';
+    }
+    // Development URL
+    return 'http://localhost:5000/api';
+};
+
+const API_URL = getApiUrl();
+
+console.log('API URL:', API_URL);
 
 // Create axios instance
 const api = axios.create({

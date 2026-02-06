@@ -20,7 +20,10 @@ app.use(express.json())
 
 // Enable CORS
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: [
+        'http://localhost:3000',
+        'https://campus-utility-system-backend.vercel.app/'
+    ],
     credentials: true
 }));
 
