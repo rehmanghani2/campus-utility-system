@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
 
       useEffect(() => {
         checkAuth();
-    }, []);
+    }, );
 
     // Helper function to clear all credentials
     const clearCredentials = () => {
