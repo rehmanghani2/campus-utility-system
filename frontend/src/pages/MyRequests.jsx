@@ -11,13 +11,7 @@ const MyRequests = () => {
     const [filter, setFilter] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
 
-    useEffect(() => {
-        fetchRequests();
-    }, []);
-
-    useEffect(() => {
-        applyFilters();
-    }, [requests, filter, searchTerm]);
+   
 
     const fetchRequests = async () => {
         try {
@@ -50,6 +44,14 @@ const MyRequests = () => {
 
         setFilteredRequests(result);
     };
+
+     useEffect(() => {
+        fetchRequests();
+    }, []);
+
+    useEffect(() => {
+        applyFilters();
+    }, [requests, filter, searchTerm]);
 
     if (loading) {
         return <div className="loading">Loading your requests...</div>;

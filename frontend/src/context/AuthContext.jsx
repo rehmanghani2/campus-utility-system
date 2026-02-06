@@ -7,9 +7,7 @@ export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-     useEffect(() => {
-        checkAuth();
-    }, )
+   
 
     const checkAuth = async () => {
         const token = localStorage.getItem('token');
@@ -28,6 +26,10 @@ export const AuthProvider = ({children}) => {
         }
         setLoading(false);
     }
+
+      useEffect(() => {
+        checkAuth();
+    }, []);
 
     // Helper function to clear all credentials
     const clearCredentials = () => {
