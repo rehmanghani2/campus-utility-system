@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { requestAPI } from '../services/api';
 import RequestCard from '../components/RequestCard';
 import { FaFilter, FaSearch } from 'react-icons/fa';
@@ -24,15 +24,13 @@ const MyRequests = () => {
         }
     };
 
-    const applyFilters = () => {
+    const applyFilters = useCallback(() => {
         let result = [...requests];
 
-        // Apply status filter
         if (filter !== 'all') {
             result = result.filter(req => req.status === filter);
         }
 
-        // Apply search filter
         if (searchTerm) {
             const term = searchTerm.toLowerCase();
             result = result.filter(req =>
@@ -43,15 +41,15 @@ const MyRequests = () => {
         }
 
         setFilteredRequests(result);
-    };
+    }, [requests, filter, searchTerm]);
 
      useEffect(() => {
         fetchRequests();
     }, []);
 
-    useEffect(() => {
-        applyFilters();
-    }, [requests, filter, searchTerm]);
+   useEffect(() => {
+    applyFilters();
+}, [applyFilters]);
 
     if (loading) {
         return <div className="loading">Loading your requests...</div>;
