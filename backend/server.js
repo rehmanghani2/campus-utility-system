@@ -28,7 +28,7 @@ app.use(cors({
 }));
 
 // Mount Routers
-app.use("/", (req, res) => res.send("server is live"))
+app.use("/api/status", (req, res) => res.send("server is live"))
 app.use('/api/auth', authRouter)
 app.use('/api/requests', requestRouter)
 app.use('/api/admin', adminRouter)
