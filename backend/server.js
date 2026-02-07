@@ -22,7 +22,7 @@ app.use(express.json())
 app.use(cors({
     origin: [
         'http://localhost:3000',
-        'https://campus-utility-system-backend.vercel.app/'
+        'https://campus-utility-system-backend.vercel.app'
     ],
     credentials: true
 }));
